@@ -1,7 +1,7 @@
 <?
 
 // Config
-$bb_URL = 'http://localhost:8888/AnonBB'
+$bb_URL = 'http://localhost:8888/AnonBB';
 $db_host = 'localhost';
 $db_un = 'root';
 $db_pw = 'root';
