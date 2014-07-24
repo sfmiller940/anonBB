@@ -21,7 +21,7 @@ function anonBB(BB_divID){
 
 	// Show threads
 	showThreads = function(){
-		$.get("?get_threads", function(data) {
+		$.get("AnonBB.php?get_threads", function(data) {
 			//var threads = jQuery.parseJSON(data);
 			$(BB_divID + ' #threads').append(data);
 		});
@@ -32,7 +32,7 @@ function anonBB(BB_divID){
 
 	// Show posts
 	showPosts = function(){
-		$.get("?get_posts", function(data) {
+		$.get("AnonBB.php?get_posts", function(data) {
 			//var threads = jQuery.parseJSON(data);
 			$(BB_divID + ' #posts').append(data);
 		});
