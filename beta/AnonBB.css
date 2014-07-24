@@ -1,6 +1,53 @@
+body{
+	background: url(http://poibella.org/viz/wp-content/uploads/2014/06/newton_small.gif);
+	background-size: cover;
+}
+
+a, p, label{
+	margin:0px;
+	margin-left:7px;
+	color: #ffffff;
+}
+
 #anonBB{
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 700px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+	background: rgba(0, 0, 0, 0.8);
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+#anonBB .menu{
+	width:97%;
+	height: 30px;
+	padding-top:7px;
+	text-align: right;
+}
+
+
+#anonBB .content{ width:100%; }
+
+#threads{ width: 100%; }
+
+#new_thread{ width: 100%; }
+
+.thread div.user{
+	width: 10%;
+	float: left;
+}
+.thread div.date{
+	width: 25%;
+	float: left;
+}
+
+.thread  div.subject{
+	width: 55%;
+	float: left;
+}
+
+
+#anonBB .menu .posts{
+	width:100%;
 }
