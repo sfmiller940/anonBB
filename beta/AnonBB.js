@@ -40,11 +40,13 @@ function anonBB(BB_divID){
 				    return false;  
 				});
 			});
-			$(BB_divID + ' .new_content').append('<div id="new_thread"></div>');
-			$(BB_divID + ' .new_content #new_thread').append('<label>User</label><input type="text" id="user">');
-			$(BB_divID + ' .new_content #new_thread').append('<label>Subject</label><input type="text" id="subject">');
-			$(BB_divID + ' .new_content #new_thread').append('<label>Message</label><input type="text" id="message">');
-			$(BB_divID + ' .new_content #new_thread').append('<input type="button" value="New Thread" id="make_thread">');
+			$(BB_divID + ' .new_content').append('<div class="new_thread"></div>');
+			$(BB_divID + ' .new_thread').append('<label class="user">Name:</label><input type="text" id="user">');
+			$(BB_divID + ' .new_thread').append('<label class="user">Subject:</label><input type="text" id="subject">');
+			$(BB_divID + ' .new_thread').append('<label class="message">Message:</label><textarea rows="4" cols="30" id="message"></textarea>');
+			$(BB_divID + ' .new_thread').append('<img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image" />');
+			$(BB_divID + ' .new_thread').append('<label class="captcha">Captcha:</label><input type="text" id="captcha_code" name="captcha_code" size="10" maxlength="6" />');
+			$(BB_divID + ' .new_thread').append('<input type="button" value="New Thread" id="make_thread" class="make_thread">');
 			$('#make_thread').click( newThread );
 		});
 	}
@@ -58,13 +60,13 @@ function anonBB(BB_divID){
 		clear_most();
 		$.get("AnonBB.php?get_posts&ID=" + ID, function(data) {
 			var posts = jQuery.parseJSON(data);
-			$(BB_divID + ' .content').append('<div id="posts"></div>');
+			$(BB_divID + ' .content').append('<div class="posts"></div>');
 			$.each(posts, function(i, post) {
-				$(BB_divID + ' .content #posts').append('<div class="post" id="post_'+ post.ID +'"></div>');
-				$(BB_divID + ' .content #posts #post_' + post.ID).append(
-					'<div class="user">' + post.User + '</div>' +
-					'<div class="date">'+ post.Posted +'</div>' +
-					'<div class="post">' + post.Post + '</div>'
+				$(BB_divID + ' .posts').append('<div class="post" id="post_'+ post.ID +'"></div>');
+				$(BB_divID + ' .posts #post_' + post.ID).append(
+					'<div class="user"><p>' + post.User + '</p></div>' +
+					'<div class="date"><p>'+ post.Posted +'</p></div>' +
+					'<div class="post"><p>' + post.Post + '</p></div>'
 				);
 			});
 		});
