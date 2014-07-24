@@ -1,4 +1,4 @@
 anonBB
 ======
 
-Anonymous Bulletin Board
+Anonymous Bulletin Board - Under heavy construction.
