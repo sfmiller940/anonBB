@@ -55,10 +55,10 @@ else if (isset($_GET['get_posts'])){
 else if (isset($_GET['new_thread'])){
 	if ( ! check_cap() ) { print "1"; }
 	else {
-		$querystring = "insert into `bdThreads` (User, Subject) values ('".$mysqli->real_escape_string($_POST['User'])."', '".$mysqli->real_escape_string($_POST['Subject'])."'); ";
-		$querystring .= "insert into `bdPosts` (ID, User, Post) values (LAST_INSERT_ID(),'".$mysqli->real_escape_string($_POST['User'])."', '".$mysqli->real_escape_string($_POST['Message'])."')";
-		if( $sql_result = $mysqli->multi_query( $querystring ) ){ print "2"; }
-		else{ print $mysqli->error ." ". $querystring; }
+		$querystrings = "insert into `bdThreads` (User, Subject) values ('".$mysqli->real_escape_string($_POST['User'])."', '".$mysqli->real_escape_string($_POST['Subject'])."'); ";
+		$querystrings .= "insert into `bdPosts` (ID, User, Post) values (LAST_INSERT_ID(),'".$mysqli->real_escape_string($_POST['User'])."', '".$mysqli->real_escape_string($_POST['Message'])."')";
+		if( $sql_result = $mysqli->multi_query( $querystrings ) ){ print "2"; }
+		else{ print $mysqli->error ." ". $querystrings; }
 	}
 	die();
 }
@@ -67,10 +67,10 @@ else if (isset($_GET['new_thread'])){
 else if (isset($_GET['new_post'])){
 	if ( ! check_cap() ) { print "1"; }
 	else {
-		$querystring = "insert into `bdPosts` (`ID`, `User`, `Post`) values ('".$mysqli->real_escape_string($_POST['ID'])."','".$mysqli->real_escape_string($_POST['User'])."', '".$mysqli->real_escape_string($_POST['Message'])."'); ";
-		$querystring .= "update `bdThreads` set `Posted` = NOW(), `User`='".$mysqli->real_escape_string($_POST['User'])."' where `ID`='".$mysqli->real_escape_string($_POST['ID'])."';";
-		if( $sql_result = $mysqli->multi_query( $querystring ) ){ print "2"; }
-		else{ print $mysqli->error ." ". $querystring; }
+		$querystrings = "insert into `bdPosts` (`ID`, `User`, `Post`) values ('".$mysqli->real_escape_string($_POST['ID'])."','".$mysqli->real_escape_string($_POST['User'])."', '".$mysqli->real_escape_string($_POST['Message'])."'); ";
+		$querystrings .= "update `bdThreads` set `Posted` = NOW(), `User`='".$mysqli->real_escape_string($_POST['User'])."' where `ID`='".$mysqli->real_escape_string($_POST['ID'])."';";
+		if( $sql_result = $mysqli->multi_query( $querystrings ) ){ print "2"; }
+		else{ print $mysqli->error ." ". $querystrings; }
 	}
 	die();
 
