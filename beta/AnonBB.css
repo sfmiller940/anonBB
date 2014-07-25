@@ -5,7 +5,9 @@ body{
 	background-size: cover;
 }
 
-/* AnonBB */
+/*					*/
+/* AnonBB 			*/
+/*					*/
 #anonBB{
 	margin-top: 20px;
 	margin-left: auto;
@@ -31,7 +33,9 @@ body{
 	color: #33ffff;
 }
 
+/*					*/
 /* Primary containers */
+/*					*/
 #anonBB div.menu,
 #anonBB div.content,
 #anonBB div.new_content{
@@ -55,7 +59,9 @@ body{
 	background: rgba(0, 256, 0, 0.3);
 }
 
-/* Menu */
+/*					*/
+/* Menu 			*/
+/*					*/
 #anonBB p.title{
 	float:left;
 	color: #ffff88;
@@ -70,7 +76,9 @@ body{
 	position: relative;
 }
 
-/* Threads and posts */
+/*							*/
+/* Content: threads and posts */
+/*							*/
 #anonBB div.thread{
 	float: left;
 	width: 660px;
@@ -85,7 +93,6 @@ body{
 	border-radius: 15px;
 	float:left;
 }
-
 
 #anonBB div.user{
 	width: 150px;
@@ -113,53 +120,60 @@ body{
 	color: #88ff88;
 }
 
-/* New Threads */
+/*					*/
+/* New content form */
+/*					*/
 
-label.user,
-label.subject,
-label.message,
-label.captcha{
+#anonBB div.new_content_form{
+	margin-right: auto;
+	margin-left: auto;
+	width: 500px;
+	overflow: auto;;
+}
+
+#anonBB label.user,
+#anonBB label.subject,
+#anonBB label.message,
+#anonBB label.captcha{
 	float: left;
-	width:150px;
+	width:75px;
 	text-align: right;
 	padding-right: 7px;
 	margin-top:4px;
 }
 
-/* Inputs, replace id with class */
-input#user, input#captcha_code{
+#anonBB input.user,
+#anonBB input.captcha_code{
 	width:150px;
 	margin-right:250px;
 	float:left;
 }
 
-input#subject{
-		width:400px;
-		float:left;
-}
-
-#message{
+#anonBB input.subject,
+#anonBB textarea.message{
 	float: left;
 	width:400px;
 }
 
-img#captcha{
+#anonBB img.captcha{
 	width: 150px;
-	margin-left: 157px;
+	margin-left: 82px;
 	margin-right: 250px;
 	float: left;
 	margin-top:5px;
 }
 
+#anonBB a.new_captcha{
+	width:150px;
+	text-align: center;
+	font-size: 0.6em;
+	float: left;
+	padding-left:82px;
+	padding-right:250px;
+	padding-bottom: 5px;
+}
+
 #anonBB input.make_thread{
 	float:left;
 	margin-left: 157px;
-}
-
-a.new_captcha{
-	font-size: 0.6em;
-	float: left;
-	padding-left:157px;
-	padding-right:300px;
-	padding-bottom: 5px;
 }

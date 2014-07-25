@@ -82,19 +82,20 @@ function anonBB(BB_divID){
 	function new_content_form (id){
 
 		// Creat and append form
+		$(BB_divID + ' .new_content').append('<div class="new_content_form"></div>');
 		var new_form = '<form class="new_content_form">' + 
-			'<label class="user">Name:</label><input name="User" type="text" id="user">';
+			'<label class="user">Name:</label><input name="User" type="text" class="user">';
 		if (id == 'thread')
-			{ new_form +='<label class="user">Subject:</label><input name="Subject" type="text" id="subject">'; } 
+			{ new_form +='<label class="user">Subject:</label><input name="Subject" type="text" class="subject">'; } 
 		else
 			{ new_form += '<input type="hidden" value="'+ id +'" name="ID">'; }
-		new_form += '<label class="message">Message:</label><textarea name="Message" rows="4" cols="30" id="message"></textarea>' +
-			'<img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image" class="captcha"/>' +
+		new_form += '<label class="message">Message:</label><textarea name="Message" rows="4" cols="30" class="message"></textarea>' +
+			'<img class="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image"/>' +
 			'<a type="button" href="new image" class="new_captcha">click here for different image</a>' +
-			'<label class="captcha">Captcha:</label><input type="text" id="captcha_code" name="captcha_code" size="10" maxlength="6" />' +
+			'<label class="captcha">Captcha:</label><input type="text" class="captcha_code" name="captcha_code" size="10" maxlength="6" />' +
 			'<input type="button" value="Post" class="make_thread">' +
 			'</form>';
-		$(BB_divID + ' .new_content').append( new_form );
+		$(BB_divID + ' .new_content_form').append( new_form );
 
 		// Captcha image update
 		$(BB_divID + ' .new_captcha').click( function(e){
