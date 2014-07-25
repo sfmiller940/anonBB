@@ -46,7 +46,16 @@ else if (isset($_GET['get_posts'])){
 
 // Create new thread
 else if (isset($_GET['new_thread'])){
-	print "neweeee";
+	session_start();
+	include_once 'securimage/securimage.php';
+	$securimage = new Securimage();
+	if ($securimage->check($_POST['captcha_code']) == false) { print "0"; }
+	else {
+		$querystring = "insert into `bdThreads` (User, Subject) values ('".$mysqli->real_escape_string($_POST['User'])."', '".$mysqli->real_escape_string($_POST['Subject'])."'); ";
+		$querystring .= "insert into `bdPosts` (ID, User, Post) values (LAST_INSERT_ID(),'".$mysqli->real_escape_string($_POST['User'])."', '".$mysqli->real_escape_string($_POST['Message'])."')";
+		if( $sql_result = $mysqli->multi_query( $querystring ) ){ print "2"; }
+		else{ print $mysqli->error ." ". $querystring; }
+	}
 }
 
 // Create new post.

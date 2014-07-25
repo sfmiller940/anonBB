@@ -58,7 +58,8 @@ function anonBB(BB_divID){
         $("#make_thread").click( function () {
           	$.post( 'AnonBB.php?new_thread', $("#new_thread_form").serialize(), 
 	            function(data){
-	            	$(BB_divID + ' .new_thread').html(data);
+	            	if (data == 2){ showThreads(); }
+	            	else if (data == 0){ $("label.captcha").html("<font style='color:#ff00ff'>Retry Captcha:</font>"); }
 	            }
           	);
         });   
