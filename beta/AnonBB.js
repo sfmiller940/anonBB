@@ -38,8 +38,8 @@ function anonBB(BB_divID){
 		});
 		// New thread div
 		$(BB_divID + ' .new_content').append( new_content_form("thread") );
-		// Submit new thread.
-        $(BB_divID + " .make_thread").click( function () {
+		// Submit new thread
+		$(BB_divID + " .make_thread").click( function () {
           	$.post( 'AnonBB.php?new_thread', $("#new_content_form").serialize(), 
 	            function(data){
 	            	if (data == 2){ showThreads(); }
@@ -65,8 +65,8 @@ function anonBB(BB_divID){
 			});
 		});
 		$(BB_divID + ' .new_content').append( new_content_form( ID ) );
-		// Submit new thread.
-        $(BB_divID + " .make_thread").click( function () {
+		// Submit new post
+		$(BB_divID + " .make_thread").click( function () {
           	$.post( 'AnonBB.php?new_post', $("#new_content_form").serialize(), 
 	            function(data){
 	            	if (data == '2'){ showPosts( ID ); }
