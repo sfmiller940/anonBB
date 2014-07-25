@@ -1,6 +1,6 @@
 // AnonBB
 
-function anonBB(BB_divID){
+function anonBB(BB_divID, Title){
 
 	// Primary divs
 	// Append menu div
@@ -18,7 +18,7 @@ function anonBB(BB_divID){
 
 	// Show threads
 	showThreads = function(){
-		$(BB_divID + ' .title').html( 'AnonBB' );
+		$(BB_divID + ' .title').html( Title );
 		clear_most();
 		$.get("AnonBB.php?get_threads", function(data) {
 			var threads = jQuery.parseJSON(data);
