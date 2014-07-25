@@ -25,6 +25,15 @@ body{
 	margin-left:7px;
 }
 
+#anonBB p.title{
+	float:left;
+	color: #ff8888;
+	font-weight: bold;
+	margin-top:5px;
+	margin-left:14px;
+}
+
+
 #anonBB a{
 	text-decoration: none;
 	font-weight: bold;
