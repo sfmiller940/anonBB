@@ -59,7 +59,19 @@ else if (isset($_GET['new_thread'])){
 }
 
 // Create new post.
-else if (isset($_GET['new_post'])){}
+else if (isset($_GET['new_post'])){
+	session_start();
+	include_once 'securimage/securimage.php';
+	$securimage = new Securimage();
+	if ($securimage->check($_POST['captcha_code']) == false) { print "0"; }
+	else {
+		$querystring = "insert into `bdPosts` (`ID`, `User`, `Post`) values ('".$mysqli->real_escape_string($_POST['ID'])."','".$mysqli->real_escape_string($_POST['User'])."', '".$mysqli->real_escape_string($_POST['Message'])."'); ";
+		$querystring .= "update `bdThreads` set `Posted` = NOW(), `User`='".$mysqli->real_escape_string($_POST['User'])."' where `ID`='".$mysqli->real_escape_string($_POST['ID'])."';";
+		if( $sql_result = $mysqli->multi_query( $querystring ) ){ print "2"; }
+		else{ print $mysqli->error ." ". $querystring; }
+	}
+
+}
 
 // Install if not intalled... Redirect.
 
