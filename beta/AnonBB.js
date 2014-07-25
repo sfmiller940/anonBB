@@ -78,11 +78,11 @@ function anonBB(BB_divID){
 		});
 		$(BB_divID + ' .new_content').append( new_content( ID ) );
 		// Submit new thread.
-        $("#make_thread").click( function () {
+        $(BB_divID + " .make_thread").click( function () {
           	$.post( 'AnonBB.php?new_post', $("#new_content_form").serialize(), 
 	            function(data){
 	            	if (data == '2'){ showPosts( ID ); }
-	            	else /*if (data == '0')*/{ $("label.captcha").html("<font style='color:#ff00ff'>Retry Captcha:</font>" + data); }
+	            	else if (data == '0') { $("label.captcha").html("<font style='color:#ff00ff'>Retry Captcha:</font>"); }
 	            }
           	);
         });   
@@ -105,7 +105,7 @@ function new_content (id){
 	new_form += '<label class="message">Message:</label><textarea name="Message" rows="4" cols="30" id="message"></textarea>' +
 		'<img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image" />' +
 		'<label class="captcha">Captcha:</label><input type="text" id="captcha_code" name="captcha_code" size="10" maxlength="6" />' +
-		'<input type="button" value="Post" id="make_thread" class="make_thread">';
+		'<input type="button" value="Post" class="make_thread">';
 	if (id != 'thread'){ new_form += '<input type="hidden" value="'+ id +'" name="ID">'; }
 	new_form += '</form>';
 	return new_form;

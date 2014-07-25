@@ -131,6 +131,7 @@ label.captcha{
 	margin-top:4px;
 }
 
+/* Inputs, replace id with class */
 input#user, input#captcha_code{
 	width:150px;
 	margin-right:250px;
@@ -156,7 +157,7 @@ img#captcha{
 	margin-bottom:5px;
 }
 
-input#make_thread{
+#anonBB input.make_thread{
 	float:left;
 	margin-left: 157px;
 }
