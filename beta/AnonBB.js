@@ -24,9 +24,10 @@ function anonBB(BB_divID){
 	// Show threads
 	showThreads = function(){
 		clear_most();
+		// Threads div
+		$(BB_divID + ' .content').append('<div class="threads"></div>');
 		$.get("AnonBB.php?get_threads", function(data) {
 			var threads = jQuery.parseJSON(data);
-			$(BB_divID + ' .content').append('<div class="threads"></div>');
 			$.each(threads, function(i, thread) {
 				$(BB_divID + ' .content .threads').append('<div class="thread" id="thread_'+ thread.ID +'"></div>');
 				$(BB_divID + ' .content .threads #thread_' + thread.ID).append(
@@ -40,15 +41,27 @@ function anonBB(BB_divID){
 				    return false;  
 				});
 			});
-			$(BB_divID + ' .new_content').append('<div class="new_thread"></div>');
-			$(BB_divID + ' .new_thread').append('<label class="user">Name:</label><input type="text" id="user">');
-			$(BB_divID + ' .new_thread').append('<label class="user">Subject:</label><input type="text" id="subject">');
-			$(BB_divID + ' .new_thread').append('<label class="message">Message:</label><textarea rows="4" cols="30" id="message"></textarea>');
-			$(BB_divID + ' .new_thread').append('<img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image" />');
-			$(BB_divID + ' .new_thread').append('<label class="captcha">Captcha:</label><input type="text" id="captcha_code" name="captcha_code" size="10" maxlength="6" />');
-			$(BB_divID + ' .new_thread').append('<input type="button" value="New Thread" id="make_thread" class="make_thread">');
-			$('#make_thread').click( newThread );
 		});
+		// New thread div
+		$(BB_divID + ' .new_content').append('<div class="new_thread"></div>');
+		$(BB_divID + ' .new_thread').append(
+			'<form id="new_thread_form">' + 
+			'<label class="user">Name:</label><input name="User" type="text" id="user">' +
+			'<label class="user">Subject:</label><input name="Subject" type="text" id="subject">' +
+			'<label class="message">Message:</label><textarea name="Message" rows="4" cols="30" id="message"></textarea>' +
+			'<img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image" />' +
+			'<label class="captcha">Captcha:</label><input type="text" id="captcha_code" name="captcha_code" size="10" maxlength="6" />' +
+			'<input type="button" value="New Thread" id="make_thread" class="make_thread">' +
+			'</form>'
+		);
+		// Submit new thread.
+        $("#make_thread").click( function () {
+          	$.post( 'AnonBB.php?new_thread', $("#new_thread_form").serialize(), 
+	            function(data){
+	            	$(BB_divID + ' .new_thread').html(data);
+	            }
+          	);
+        });   
 	}
 	// Append show threads button to menu
 	$(BB_divID + ' .menu').append('<input type="button" value="All Threads" class="all_threads">');

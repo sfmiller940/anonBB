@@ -27,6 +27,9 @@ function query_to_json($mysqli, $querystring){
 	else { die("SQL bad times!"); }
 }
 
+
+
+
 // If get_threads, return all threads as JSON.
 if ( isset($_GET['get_threads']) ){
 	$threads = query_to_json($mysqli, "select * from `bdThreads` order by `Posted` desc");
@@ -42,7 +45,9 @@ else if (isset($_GET['get_posts'])){
 }
 
 // Create new thread
-else if (isset($_GET['new_thread'])){}
+else if (isset($_GET['new_thread'])){
+	print "neweeee";
+}
 
 // Create new post.
 else if (isset($_GET['new_post'])){}
