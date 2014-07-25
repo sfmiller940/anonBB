@@ -136,7 +136,7 @@ body{
 #anonBB label.message,
 #anonBB label.captcha{
 	float: left;
-	width:75px;
+	width:100px;
 	text-align: right;
 	padding-right: 7px;
 	margin-top:4px;
@@ -145,20 +145,20 @@ body{
 #anonBB input.user,
 #anonBB input.captcha_code{
 	width:150px;
-	margin-right:250px;
+	margin-right:225px;
 	float:left;
 }
 
 #anonBB input.subject,
 #anonBB textarea.message{
 	float: left;
-	width:400px;
+	width:390px;
 }
 
 #anonBB img.captcha{
 	width: 150px;
-	margin-left: 82px;
-	margin-right: 250px;
+	margin-left: 107px;
+	margin-right: 225px;
 	float: left;
 	margin-top:5px;
 }
@@ -168,8 +168,8 @@ body{
 	text-align: center;
 	font-size: 0.6em;
 	float: left;
-	padding-left:82px;
-	padding-right:250px;
+	padding-left:107px;
+	padding-right:225px;
 	padding-bottom: 5px;
 }
 

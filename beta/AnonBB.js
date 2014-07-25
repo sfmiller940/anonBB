@@ -43,7 +43,8 @@ function anonBB(BB_divID){
           	$.post( 'AnonBB.php?new_thread', $(BB_divID + " .new_content_form").serialize(), 
 	            function(data){
 	            	if (data == 2){ showThreads(); }
-	            	else if (data == 0){ $("label.captcha").html("<font style='color:#ff00ff'>Retry Captcha:</font>"); }
+	            	else if (data == 1){ $("label.captcha").html("<font style='color:#ff00ff'>Retry Captcha:</font>"); }
+	            	else { $(BB_divID + " .title").html(data);  }
 	            }
           	);
         });   
@@ -71,7 +72,8 @@ function anonBB(BB_divID){
           	$.post( 'AnonBB.php?new_post', $(BB_divID + " .new_content_form").serialize(), 
 	            function(data){
 	            	if (data == '2'){ showPosts( ID ); }
-	            	else if (data == '0') { $("label.captcha").html("<font style='color:#ff00ff'>Retry Captcha:</font>"); }
+	            	else if (data == '1') { $("label.captcha").html("<font style='color:#ff00ff'>Retry Captcha:</font>"); }
+	            	else { $(BB_divID + " .title").html(data);  }
 	            }
           	);
         });   
