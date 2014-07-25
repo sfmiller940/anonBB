@@ -11,7 +11,6 @@ $db_un = 'root';
 $db_pw = 'root';
 $db_db = 'AnonBB';
 
-
 // Connect to Database
 $mysqli = new mysqli($db_host, $db_un, $db_pw, $db_db);
 if ($mysqli->connect_errno) {
@@ -36,15 +35,14 @@ function check_cap(){
 	else { return true; }
 }
 
-
-// If get_threads, return all threads as JSON.
+// Return threads as JSON.
 if ( isset($_GET['get_threads']) ){
 	$threads = query_to_json($mysqli, "select * from `bdThreads` order by `Posted` desc");
 	print $threads;
 	die();
 }
 
-// Get single thread
+// Return a single thread's posts as JSON
 else if (isset($_GET['get_posts'])){
 	$posts = query_to_json($mysqli, "select * from `bdPosts` where `ID` = '".$mysqli->real_escape_string($_GET['ID'])."' order by `Posted`");
 	print $posts;
@@ -63,7 +61,7 @@ else if (isset($_GET['new_thread'])){
 	die();
 }
 
-// Create new post.
+// Create new post
 else if (isset($_GET['new_post'])){
 	if ( ! check_cap() ) { print "1"; }
 	else {
@@ -76,7 +74,7 @@ else if (isset($_GET['new_post'])){
 
 }
 
-// Install if not installed... Redirect.
+// Install if not installed
 else{
 	$res = $mysqli->query("SHOW TABLES LIKE 'bdPosts'");
 	if ($res->num_rows > 0){
@@ -86,25 +84,25 @@ else{
 	else{
 		$querystrings = <<<MYSQLINSTALLSTRING
 
--- Posts
+			-- Threads
 
-CREATE TABLE IF NOT EXISTS `bdPosts` (
-  `ID` int(11) NOT NULL DEFAULT '0',
-  `User` varchar(20) NOT NULL DEFAULT '',
-  `Posted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Post` text NOT NULL,
-  KEY `Posted` (`Posted`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+			CREATE TABLE IF NOT EXISTS `bdThreads` (
+			  `ID` int(11) NOT NULL AUTO_INCREMENT,
+			  `User` varchar(20) NOT NULL DEFAULT '',
+			  `Subject` varchar(50) NOT NULL DEFAULT '',
+			  `Posted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+			  KEY `ID` (`ID`)
+			) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=132 ;
 
--- Threads
+			-- Posts
 
-CREATE TABLE IF NOT EXISTS `bdThreads` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `User` varchar(20) NOT NULL DEFAULT '',
-  `Subject` varchar(50) NOT NULL DEFAULT '',
-  `Posted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  KEY `ID` (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=132 ;
+			CREATE TABLE IF NOT EXISTS `bdPosts` (
+			  `ID` int(11) NOT NULL DEFAULT '0',
+			  `User` varchar(20) NOT NULL DEFAULT '',
+			  `Posted` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+			  `Post` text NOT NULL,
+			  KEY `Posted` (`Posted`)
+			) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 MYSQLINSTALLSTRING;
 	
@@ -113,7 +111,6 @@ MYSQLINSTALLSTRING;
 			die();
 		}
 		else {die( "Failed to intall AnonBB. MySQL Error: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error ); }
-
 	}
 }
 

@@ -1,25 +1,17 @@
 // AnonBB
-
 function anonBB(BB_divID, Title){
 
-	// Primary divs
-	// Append menu div
+	// Primary divs: menu, content, new_content
 	$(BB_divID).append('<div class="menu"></div>');
-	// Append threads div
 	$(BB_divID).append('<div class="content"></div>');
-	// Append threads div
 	$(BB_divID).append('<div class="new_content"></div>');
-
-	// Clear content/new_content divs
-	function clear_most(){
-		$(BB_divID + ' .content').empty();
-		$(BB_divID + ' .new_content').empty();
-	}
 
 	// Show threads
 	showThreads = function(){
+		// Refresh title and clear divs
 		$(BB_divID + ' .title').html( Title );
-		clear_most();
+		$(BB_divID + ' .content, '+BB_divID + ' .new_content').empty();
+		// Get threads, format and append
 		$.get("AnonBB.php?get_threads", function(data) {
 			var threads = jQuery.parseJSON(data);
 			$.each(threads, function(i, thread) {
@@ -36,10 +28,10 @@ function anonBB(BB_divID, Title){
 				});
 			});
 		});
-		// New thread div
+		// New thread form
 		new_content_form("thread");
 		// Submit new thread
-		$(BB_divID + " .make_thread").click( function () {
+		$(BB_divID + " .make_content").click( function () {
           	$.post( 'AnonBB.php?new_thread', $(BB_divID + " .new_content_form").serialize(), 
 	            function(data){
 	            	if (data == 2){ showThreads(); }
@@ -52,8 +44,10 @@ function anonBB(BB_divID, Title){
 
 	// Show posts
 	showPosts = function(ID){
+		// Refresh title and clear divs
 		$(BB_divID + ' .title').html( $(BB_divID + ' a.view_thread_'+ ID).html() );
-		clear_most();
+		$(BB_divID + ' .content, '+BB_divID + ' .new_content').empty();
+		// Get posts, format and append
 		$.get("AnonBB.php?get_posts&ID=" + ID, function(data) {
 			var posts = jQuery.parseJSON(data);
 			$.each(posts, function(i, post) {
@@ -65,10 +59,10 @@ function anonBB(BB_divID, Title){
 				);
 			});
 		});
-		// New post div
+		// New post form
 		new_content_form( ID );
 		// Submit new post
-		$(BB_divID + " .make_thread").click( function () {
+		$(BB_divID + " .make_content").click( function () {
           	$.post( 'AnonBB.php?new_post', $(BB_divID + " .new_content_form").serialize(), 
 	            function(data){
 	            	if (data == '2'){ showPosts( ID ); }
@@ -77,13 +71,11 @@ function anonBB(BB_divID, Title){
 	            }
           	);
         });   
-
 	}
 
-	// New content form(s)
+	// Create and append new content form
 	function new_content_form (id){
-
-		// Creat and append form
+		// Create div and append form.
 		$(BB_divID + ' .new_content').append('<div class="new_content_form"></div>');
 		var new_form = '<form class="new_content_form">' + 
 			'<label class="user">Name:</label><input name="User" type="text" class="user">';
@@ -95,17 +87,16 @@ function anonBB(BB_divID, Title){
 			'<img class="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image"/>' +
 			'<a type="button" href="new image" class="new_captcha">click here for different image</a>' +
 			'<label class="captcha">Captcha:</label><input type="text" class="captcha_code" name="captcha_code" size="10" maxlength="6" />' +
-			'<input type="button" value="Post" class="make_thread">' +
+			'<input type="button" value="Post" class="make_content">' +
 			'</form>';
 		$(BB_divID + ' .new_content_form').append( new_form );
 
-		// Captcha image update
+		// Activate link for new captcha image
 		$(BB_divID + ' .new_captcha').click( function(e){
 			e.preventDefault();
 			$(BB_divID +' .captcha').attr('src', 'securimage/securimage_show.php?' + Math.random());
 			return false;
 		});
-		
 	}
 
 	// Append title and button to menu
