@@ -59,8 +59,7 @@ body{
 }
 
 /* Threads */
-#anonBB .threads,
-#anonBB .posts{
+#anonBB .content{
 	width: 666;
 	margin:7px;
 	padding:10px;

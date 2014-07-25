@@ -24,18 +24,16 @@ function anonBB(BB_divID){
 	// Show threads
 	showThreads = function(){
 		clear_most();
-		// Threads div
-		$(BB_divID + ' .content').append('<div class="threads"></div>');
 		$.get("AnonBB.php?get_threads", function(data) {
 			var threads = jQuery.parseJSON(data);
 			$.each(threads, function(i, thread) {
-				$(BB_divID + ' .content .threads').append('<div class="thread" id="thread_'+ thread.ID +'"></div>');
-				$(BB_divID + ' .content .threads #thread_' + thread.ID).append(
+				$(BB_divID + ' .content ').append('<div class="thread thread_'+ thread.ID +'"></div>');
+				$(BB_divID + ' .thread_' + thread.ID).append(
 					'<div class="user"><p>' + thread.User + '</p></div>' +
-					'<div class="subject"><p><a id="view_thread_'+ thread.ID +'" href="View Thread">'+ thread.Subject +'</a></p></div>' +
+					'<div class="subject"><p><a class="view_thread_'+ thread.ID +'" href="View Thread">'+ thread.Subject +'</a></p></div>' +
 					'<div class="date"><p>' + thread.Posted + '</p></div>'
 				);
-				$("#view_thread_" + thread.ID).click(function(e) {
+				$(BB_divID + " .view_thread_" + thread.ID).click(function(e) {
 				    e.preventDefault();
 				    showPosts(thread.ID);
 				    return false;  
@@ -62,14 +60,11 @@ function anonBB(BB_divID){
 	// Show posts
 	showPosts = function(ID){
 		clear_most();
-		var post_id;
 		$.get("AnonBB.php?get_posts&ID=" + ID, function(data) {
 			var posts = jQuery.parseJSON(data);
-			$(BB_divID + ' .content').append('<div class="posts"></div>');
 			$.each(posts, function(i, post) {
-				post_id = post.ID;
-				$(BB_divID + ' .posts').append('<div class="post" id="post_'+ i +'"></div>');
-				$(BB_divID + ' #post_' + i).append(
+				$(BB_divID + ' .content').append('<div class="post post_'+ i +'"></div>');
+				$(BB_divID + ' .post_' + i).append(
 					'<div class="user_date"><div class="user"><p>' + post.User + '</p></div>' +
 					'<div class="date"><p>'+ post.Posted +'</p></div></div>' +
 					'<div class="message"><p>' + post.Post + '</p></div>' 
