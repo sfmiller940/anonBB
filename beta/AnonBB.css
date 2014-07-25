@@ -162,10 +162,17 @@ img#captcha{
 	margin-right: 250px;
 	float: left;
 	margin-top:5px;
-	margin-bottom:5px;
 }
 
 #anonBB input.make_thread{
 	float:left;
 	margin-left: 157px;
+}
+
+a.new_captcha{
+	font-size: 0.6em;
+	float: left;
+	padding-left:157px;
+	padding-right:300px;
+	padding-bottom: 5px;
 }
