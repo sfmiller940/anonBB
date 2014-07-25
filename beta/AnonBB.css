@@ -11,7 +11,7 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	width: 700px;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.8);
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	color: #ffffff;
@@ -64,34 +64,54 @@ body{
 	width: 666;
 	margin:7px;
 	padding:10px;
-	background: rgba(256, 0, 0, 0.3);
+	background: rgba( 256, 0, 0, 0.3);
 	-moz-border-radius: 15px;
 	border-radius: 15px;
+	float:left;
 }
 
 
 /* Content */
 #anonBB div.user{
-	width: 20%;
+	width: 150px;
 	float: left;
 }
 #anonBB div.date{
-	width: 25%;
+	width: 180px;
 	float: left;
 }
 
 #anonBB  div.subject{
-	width: 55%;
+	width: 336;
 	float: left;
 }
 
+/* Posts */
 
-#anonBB .menu .posts{
-	width:100%;
+#anonBB .user_date{
+	width: 180px;
+	float: left;
+}
+
+#anonBB div.post{
+	background: rgba( 0, 0, 128, 0.3);
+	width: 632px;
+	margin:7px;
+	padding:10px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	float:left;
+
+}
+
+#anonBB div.message{
+	float:left;
+	width:400px;
+	color: #88ff88;
 }
 
 /* New Threads */
-#anonBB .new_thread{
+#anonBB .new_content{
 	width: 666;
 	margin:7px;
 	padding:10px;
