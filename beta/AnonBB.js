@@ -53,9 +53,9 @@ function anonBB(BB_divID, Title){
 			$.each(posts, function(i, post) {
 				$(BB_divID + ' .content').append('<div class="post post_'+ i +'"></div>');
 				$(BB_divID + ' .post_' + i).append(
-					'<div class="user_date"><div class="user"><p>' + post.User + '</p></div>' +
-					'<div class="date"><p>'+ post.Posted +'</p></div></div>' +
-					'<div class="message"><p>' + post.Post + '</p></div>' 
+					'<div class="user"><p>' + post.User + '</p></div>' +
+					'<div class="message"><p>' + post.Post + '</p></div>' + 
+					'<div class="date"><p>'+ post.Posted +'</p></div>' 
 				);
 			});
 		});

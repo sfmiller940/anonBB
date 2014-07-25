@@ -43,16 +43,18 @@ body{
 	margin:10px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	padding: 10px;
+	padding: 15px;
 	float: left;
 }
 
 #anonBB div.menu{
 	background: rgba(0, 0, 256, 0.3);
+	padding-left: 15px;
 }
 
 #anonBB div.content{
 	background: rgba( 256, 0, 0, 0.3);
+	padding-left: 15px;
 }
 
 #anonBB div.new_content{
@@ -82,6 +84,7 @@ body{
 #anonBB div.thread{
 	float: left;
 	width: 660px;
+	margin-bottom: 5px;
 }
 
 #anonBB div.post{
@@ -99,24 +102,21 @@ body{
 	float: left;
 }
 #anonBB div.date{
-	width: 174px;
-	float: left;
+	text-align: right;
+	width: 120px;
+	float: right;
+	font-size: 0.7em;
+	margin-right: 5px;
 }
 
 #anonBB  div.subject{
-	width: 336;
-	float: left;
-}
-
-#anonBB div.user_date{
-	margin-left:10px;
-	width: 180px;
+	width: 360;
 	float: left;
 }
 
 #anonBB div.message{
 	float:left;
-	width:400px;
+	width:450px;
 	color: #88ff88;
 }
 
