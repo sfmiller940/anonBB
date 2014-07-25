@@ -80,23 +80,23 @@ function anonBB(BB_divID){
 
 	// New content form(s)
 	function new_content_form (id){
+
+		// Creat and append form
 		var new_form = '<form class="new_content_form">' + 
 			'<label class="user">Name:</label><input name="User" type="text" id="user">';
-
 		if (id == 'thread')
 			{ new_form +='<label class="user">Subject:</label><input name="Subject" type="text" id="subject">'; } 
 		else
 			{ new_form += '<input type="hidden" value="'+ id +'" name="ID">'; }
-
 		new_form += '<label class="message">Message:</label><textarea name="Message" rows="4" cols="30" id="message"></textarea>' +
 			'<img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image" class="captcha"/>' +
 			'<a type="button" href="new image" class="new_captcha">click here for different image</a>' +
 			'<label class="captcha">Captcha:</label><input type="text" id="captcha_code" name="captcha_code" size="10" maxlength="6" />' +
 			'<input type="button" value="Post" class="make_thread">' +
 			'</form>';
-		
 		$(BB_divID + ' .new_content').append( new_form );
 
+		// Captcha image update
 		$(BB_divID + ' .new_captcha').click( function(e){
 			e.preventDefault();
 			$(BB_divID +' .captcha').attr('src', 'securimage/securimage_show.php?' + Math.random());
@@ -105,7 +105,7 @@ function anonBB(BB_divID){
 		
 	}
 
-	// Append show threads button to menu
+	// Append title and button to menu
 	$(BB_divID + ' .menu').append('<p class="title"></p>');
 	$(BB_divID + ' .menu').append('<input type="button" value="All Threads" class="all_threads">');
 	$(BB_divID + ' .all_threads').click(showThreads);

@@ -11,28 +11,19 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	width: 700px;
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.7);
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	color: #ffffff;
 	font-size: 80%;
 	font-family: Verdana;
+	overflow: auto;
 }
 
 #anonBB a,
 #anonBB p{
 	margin:0px;
-	margin-left:7px;
 }
-
-#anonBB p.title{
-	float:left;
-	color: #ff8888;
-	font-weight: bold;
-	margin-top:5px;
-	margin-left:14px;
-}
-
 
 #anonBB a{
 	text-decoration: none;
@@ -40,52 +31,68 @@ body{
 	color: #33ffff;
 }
 
+/* Primary containers */
+#anonBB div.menu,
+#anonBB div.content,
+#anonBB div.new_content{
+	width: 660;
+	margin:10px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	padding: 10px;
+	float: left;
+}
 
-/* Primary and secondary containers */
-#anonBB .content,
-#anonBB .menu,
-#anonBB .threads,
-#anonBB .thread,
-#anonBB .new_content,
-#anonBB .new_thread{ 
-	width:100%;
-	display: inline-block;
+#anonBB div.menu{
+	background: rgba(0, 0, 256, 0.3);
+}
+
+#anonBB div.content{
+	background: rgba( 256, 0, 0, 0.3);
+}
+
+#anonBB div.new_content{
+	background: rgba(0, 256, 0, 0.3);
+}
+
+/* Menu */
+#anonBB p.title{
+	float:left;
+	color: #ffff88;
+	font-weight: bold;
+	position: relative;
+	font-size: 1.1em;
+	top: 3px;
+}
+
+#anonBB input.all_threads{
+	float:right;
 	position: relative;
 }
 
-
-/* Menu */
-#anonBB .menu{
-	width: 666;
-	height: 30px;
-	margin:7px;
-	text-align: right;
-	background: rgba(0, 0, 256, 0.3);
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	padding-right:20px;
-	padding-top: 5px;
+/* Threads and posts */
+#anonBB div.thread{
+	float: left;
+	width: 660px;
 }
 
-/* Threads */
-#anonBB .content{
-	width: 666;
-	margin:7px;
+#anonBB div.post{
+	background: rgba( 0, 0, 128, 0.3);
+	width: 620px;
+	margin:10px;
 	padding:10px;
-	background: rgba( 256, 0, 0, 0.3);
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	float:left;
 }
 
 
-/* Content */
 #anonBB div.user{
 	width: 150px;
 	float: left;
 }
 #anonBB div.date{
-	width: 180px;
+	width: 174px;
 	float: left;
 }
 
@@ -94,22 +101,10 @@ body{
 	float: left;
 }
 
-/* Posts */
-
-#anonBB .user_date{
+#anonBB div.user_date{
+	margin-left:10px;
 	width: 180px;
 	float: left;
-}
-
-#anonBB div.post{
-	background: rgba( 0, 0, 128, 0.3);
-	width: 632px;
-	margin:7px;
-	padding:10px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	float:left;
-
 }
 
 #anonBB div.message{
@@ -119,14 +114,6 @@ body{
 }
 
 /* New Threads */
-#anonBB .new_content{
-	width: 666;
-	margin:7px;
-	padding:10px;
-	background: rgba(0, 256, 0, 0.3);
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-}
 
 label.user,
 label.subject,
