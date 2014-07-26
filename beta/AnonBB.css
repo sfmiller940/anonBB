@@ -92,7 +92,7 @@ body{
 	background: rgba( 0, 0, 128, 0.3);
 	width: 620px;
 	margin:10px;
-	padding:10px;
+	padding:15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	float:left;
@@ -119,6 +119,7 @@ body{
 	float:left;
 	width:450px;
 	color: #88ff88;
+	margin-bottom: 5px;
 }
 
 /*					*/

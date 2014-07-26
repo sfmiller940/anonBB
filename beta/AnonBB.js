@@ -1,6 +1,13 @@
 // AnonBB
 function anonBB(BB_divID, Title){
 
+	// Attach action to anchors
+	function attach_action(e, id, func){
+		e.preventDefault();
+		func(id);
+		return false;
+	}
+
 	// Primary divs: menu, content, new_content
 	$(BB_divID).append('<div class="menu"></div>');
 	$(BB_divID).append('<div class="content"></div>');
@@ -21,11 +28,7 @@ function anonBB(BB_divID, Title){
 					'<div class="subject"><p><a class="view_thread_'+ thread.ID +'" href="View Thread">'+ thread.Subject +'</a></p></div>' +
 					'<div class="date"><p>' + thread.Posted + '</p></div>'
 				);
-				$(BB_divID + " .view_thread_" + thread.ID).click(function(e) {
-				    e.preventDefault();
-				    showPosts(thread.ID);
-				    return false;  
-				});
+				$(BB_divID + " .view_thread_" + thread.ID).click(function(e) { attach_action(e, thread.ID, showPosts); });
 			});
 		});
 		// New thread form
@@ -45,7 +48,10 @@ function anonBB(BB_divID, Title){
 	// Show posts
 	showPosts = function(ID){
 		// Refresh title and clear divs
-		$(BB_divID + ' .title').html( $(BB_divID + ' a.view_thread_'+ ID).html() );
+		if ($(BB_divID + ' .title').html() == Title){
+			$(BB_divID + ' .title').html( '<a href="refresh" class="refresh">' + $(BB_divID + ' a.view_thread_'+ ID).html() + '</a>' );
+			$(BB_divID + ' .refresh').click( function(e){ attach_action(e, ID, showPosts) });
+		}
 		$(BB_divID + ' .content, '+BB_divID + ' .new_content').empty();
 		// Get posts, format and append
 		$.get("AnonBB.php?get_posts&ID=" + ID, function(data) {
@@ -102,11 +108,7 @@ function anonBB(BB_divID, Title){
 	// Append title and button to menu
 	$(BB_divID + ' .menu').append('<p class="title"></p>');
 	$(BB_divID + ' .menu').append('<a type="button" href="All Threads" class="all_threads">All Threads</a>');
-	$(BB_divID + ' .all_threads').click(function(e){
-		e.preventDefault();
-		showThreads();
-		return false;
-	});
+	$(BB_divID + ' .all_threads').click(function(e){ attach_action(e, '', showThreads); });
 
 	// Show threads
 	showThreads();
