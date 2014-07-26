@@ -1,15 +1,32 @@
 <?php
 
-// Display errors.
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(-1);
-
 // Config parameters
 $db_host = 'localhost';
 $db_un = 'root';
 $db_pw = 'root';
 $db_db = 'AnonBB';
+
+// Display errors.
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+
+// Deal with magic quotes slash issue
+if (get_magic_quotes_gpc()) {
+    $process = array(&$_POST);
+    while (list($key, $val) = each($process)) {
+        foreach ($val as $k => $v) {
+            unset($process[$key][$k]);
+            if (is_array($v)) {
+                $process[$key][stripslashes($k)] = $v;
+                $process[] = &$process[$key][stripslashes($k)];
+            } else {
+                $process[$key][stripslashes($k)] = stripslashes($v);
+            }
+        }
+    }
+    unset($process);
+}
 
 // Connect to Database
 $mysqli = new mysqli($db_host, $db_un, $db_pw, $db_db);

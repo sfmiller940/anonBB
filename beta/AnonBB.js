@@ -1,7 +1,7 @@
 // AnonBB
 function anonBB(BB_divID, Title){
 
-	// Attach action to anchors
+	// Attach an action to an anchor
 	function attach_action(e, id, func){
 		e.preventDefault();
 		func(id);
@@ -98,11 +98,9 @@ function anonBB(BB_divID, Title){
 		$(BB_divID + ' .new_content_form').append( new_form );
 
 		// Activate link for new captcha image
-		$(BB_divID + ' .new_captcha').click( function(e){
-			e.preventDefault();
+		$(BB_divID + ' .new_captcha').click( function(e){ attach_action(e,'',function(){
 			$(BB_divID +' .captcha').attr('src', 'securimage/securimage_show.php?' + Math.random());
-			return false;
-		});
+		});});
 	}
 
 	// Append title and button to menu
