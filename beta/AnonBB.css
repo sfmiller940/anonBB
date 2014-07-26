@@ -17,7 +17,7 @@ body{
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	color: #ffffff;
-	font-size: 80%;
+	font-size: 14px;
 	font-family: Verdana;
 	overflow: auto;
 }
@@ -69,14 +69,14 @@ body{
 	color: #ffff88;
 	font-weight: bold;
 	position: relative;
-	font-size: 1.1em;
+	font-size: 16px;
 }
 
 #anonBB a.all_threads{
 	float:right;
 	margin-right: 5px;
 	position: relative;
-	font-size: 1.1em;
+	font-size: 16px;
 }
 
 /*							*/
@@ -168,7 +168,7 @@ body{
 #anonBB a.new_captcha{
 	width:150px;
 	text-align: center;
-	font-size: 0.6em;
+	font-size: 10px;
 	float: left;
 	padding-left:107px;
 	padding-right:225px;
