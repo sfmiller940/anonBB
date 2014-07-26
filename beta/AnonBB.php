@@ -11,7 +11,7 @@ ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
 
-// Deal with magic quotes slash issue
+// Deal with magic quotes slash issue via: http://php.net/manual/en/security.magicquotes.disabling.php
 if (get_magic_quotes_gpc()) {
     $process = array(&$_POST);
     while (list($key, $val) = each($process)) {
