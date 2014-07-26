@@ -106,7 +106,7 @@ body{
 	text-align: right;
 	width: 120px;
 	float: right;
-	font-size: 0.7em;
+	font-size: 8px;
 	margin-right: 5px;
 }
 
@@ -168,7 +168,7 @@ body{
 #anonBB a.new_captcha{
 	width:150px;
 	text-align: center;
-	font-size: 10px;
+	font-size: 8px;
 	float: left;
 	padding-left:107px;
 	padding-right:225px;
