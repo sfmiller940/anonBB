@@ -101,8 +101,12 @@ function anonBB(BB_divID, Title){
 
 	// Append title and button to menu
 	$(BB_divID + ' .menu').append('<p class="title"></p>');
-	$(BB_divID + ' .menu').append('<input type="button" value="All Threads" class="all_threads">');
-	$(BB_divID + ' .all_threads').click(showThreads);
+	$(BB_divID + ' .menu').append('<a type="button" href="All Threads" class="all_threads">All Threads</a>');
+	$(BB_divID + ' .all_threads').click(function(e){
+		e.preventDefault();
+		showThreads();
+		return false;
+	});
 
 	// Show threads
 	showThreads();

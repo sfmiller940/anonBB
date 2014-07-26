@@ -70,12 +70,13 @@ body{
 	font-weight: bold;
 	position: relative;
 	font-size: 1.1em;
-	top: 3px;
 }
 
-#anonBB input.all_threads{
+#anonBB a.all_threads{
 	float:right;
+	margin-right: 5px;
 	position: relative;
+	font-size: 1.1em;
 }
 
 /*							*/
