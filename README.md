@@ -1,4 +1,4 @@
-### AnonBB - Anonymous Bulletin Board ((demo)[http://poibella.org/pi])
+### AnonBB - Anonymous Bulletin Board ([demo](http://poibella.org/pi] ))
 
 This bulletin board allows anonymous posting with [securimage captcha verification](https://www.phpcaptcha.org/) to prevent spam. The UI is written in javascript with jquery. PHP processes any requests. executing MySQL queries and returning JSON.
 
