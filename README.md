@@ -6,4 +6,4 @@ To install:
 
 1. Enter your mysql settings in AnonBB.php 
 2. Run AnonBB.php
-3. Check out your bulletin board at index.html
+3. Check out your bulletin board at index.html (or insert in another page)
