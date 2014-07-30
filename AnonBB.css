@@ -12,7 +12,7 @@ body{
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
-	width: 700px;
+	width: 800px;
 	background: rgba(0, 0, 0, 0.7);
 	-moz-border-radius: 15px;
 	border-radius: 15px;
@@ -39,7 +39,7 @@ body{
 #anonBB div.menu,
 #anonBB div.content,
 #anonBB div.new_content{
-	width: 660;
+	width: 750px;
 	margin:10px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
@@ -84,13 +84,13 @@ body{
 /*							*/
 #anonBB div.thread{
 	float: left;
-	width: 660px;
+	width: 750px;
 	margin-bottom: 5px;
 }
 
 #anonBB div.post{
 	background: rgba( 0, 0, 128, 0.3);
-	width: 620px;
+	width: 700px;
 	margin:10px;
 	padding:15px;
 	-moz-border-radius: 15px;
@@ -99,7 +99,7 @@ body{
 }
 
 #anonBB div.user{
-	width: 150px;
+	width: 160px;
 	float: left;
 }
 #anonBB div.date{
@@ -111,13 +111,13 @@ body{
 }
 
 #anonBB  div.subject{
-	width: 360;
+	width: 465;
 	float: left;
 }
 
 #anonBB div.message{
 	float:left;
-	width:450px;
+	width:540px;
 	color: #88ff88;
 	margin-bottom: 5px;
 }
@@ -155,6 +155,10 @@ body{
 #anonBB textarea.message{
 	float: left;
 	width:390px;
+}
+
+#anonBB textarea.message{
+	height: 150px;
 }
 
 #anonBB img.captcha{
