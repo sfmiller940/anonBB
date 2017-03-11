@@ -1,4 +1,4 @@
-Note: This project is defunct. It is being updated with a node.js backend at [nodebb](https://github.com/sfmiller940/nodebb).
+Note: This project is defunct. It is being updated using node.js at [nodebb](https://github.com/sfmiller940/nodebb).
 
 ### AnonBB - Anonymous Bulletin Board
 
